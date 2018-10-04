@@ -6,4 +6,4 @@
  * Time: 4:42 PM
  */
 
-echo 'test1234567';
+echo 'test1234567fastforward';
