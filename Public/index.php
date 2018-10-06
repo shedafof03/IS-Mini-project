@@ -7,35 +7,42 @@
  */
 
 main::start();
-class main{
+class main {
 
+    static public function start() {
+        $records = csv::getRecords();
+        $table = html::generateTable($records);
+        system::printPage ($table);
+    }
 
-    static public function start()  {
-     $records = csv::getRecords();
-     $table=html::generateTable($records);
-     system::printPage($table);
-  }
 }
-
 
 class csv {
 
-    static public function getrecords(){
+    static public function getRecords() {
 
 
-        $make = 'ford';
-        $model = 'Taurus';
+
+        $make = 'Lambo';
+        $model = 'Bling Wagon';
         $car = AutomobileFactory::create($make, $model);
-        print_r($car) ;
 
-        
-        return $records
+        $records[] =$car;
+
+        print_r($records);
+
+        return $records;
     }
 }
 
 class html {
 
+    /**
+     * @param $records
+     * @return mixed
+     */
     static public function generateTable($records){
+
 
         $table = $records;
 
@@ -44,7 +51,7 @@ class html {
 
 }
 
-class sysytem {
+class system {
 
   static public function printpage($page) {
 
@@ -76,3 +83,4 @@ class AutomobileFactory
         return new Automobile($make, $model);
     }
 }
+
